@@ -38,8 +38,15 @@ function mostraMapa(Lat, Long){
           zoom: 15
         });
 
+          L.marker([Lat, Long], {
+          icon: L.mapquest.icons.marker(),
+          draggable: false
+        }).bindPopup().addTo(map);
+
         map.addControl(L.mapquest.control());
 }
+
+
 
 $(document).on("click", "#btn5", function(){
   var onSuccess = function(position) {
@@ -56,3 +63,4 @@ $(document).on("click", "#btn5", function(){
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
+
